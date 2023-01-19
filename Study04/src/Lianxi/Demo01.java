@@ -15,17 +15,7 @@ public class Demo01 {
         //判断是旺季还是淡季
         if(month >= 5 && month <=10){
             //旺季
-            if(seat==0){
-                //头等舱
-                ticket=(int)(ticket*0.9);
-            }
-            else if(seat==1){
-                //经济舱
-                ticket=(int)(ticket*0.85);
-            }
-            else{
-                System.out.println("没有这个仓位");
-            }
+            ticket = getTicket(ticket, seat);
         }
         else if ((month >= 1 && month <=4) || (month >=11 && month <=12)){
             //淡季
@@ -47,8 +37,20 @@ public class Demo01 {
         System.out.println(ticket);
     }
 
-
-
+    private static int getTicket(int ticket, int seat) {
+        if(seat==0){
+            //头等舱
+            ticket=(int)(ticket*0.9);
+        }
+        else if(seat==1){
+            //经济舱
+            ticket=(int)(ticket*0.85);
+        }
+        else{
+            System.out.println("没有这个仓位");
+        }
+        return ticket;
+    }
 
 
 }
